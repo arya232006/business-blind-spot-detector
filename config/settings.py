@@ -33,6 +33,11 @@ class Settings:
     # "local": Streamlit calls the service layer in-process. "api": Streamlit talks to FastAPI over HTTP.
     frontend_mode: str = field(default_factory=lambda: os.getenv("BLINDSPOT_MODE", "local").lower())
     api_url: str = field(default_factory=lambda: os.getenv("BLINDSPOT_API_URL", "http://localhost:8000"))
+    # Browser origins allowed to call the API (comma-separated). The backend has NO authentication, so this must stay an
+    # explicit list - never a wildcard. Add your deployed frontend origin here, e.g. https://my-app.vercel.app
+    cors_origins: tuple = field(default_factory=lambda: tuple(
+        o.strip().rstrip("/") for o in os.getenv(
+            "CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8501,http://127.0.0.1:8501").split(",") if o.strip()))
     # --- NLP models -----------------------------------------------------
     # "sbert" = SentenceTransformer (needs a one-time model download), "tfidf" = offline lightweight fallback.
     embedding_backend: str = field(default_factory=lambda: os.getenv("EMBEDDING_BACKEND", "sbert").lower())

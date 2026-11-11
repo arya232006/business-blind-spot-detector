@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.api.routes import router
 from backend.services.analysis import recover_stale_sessions
 from config.logging_config import get_logger, setup_logging
+from config.settings import settings
 from database.connection import init_db
 
 setup_logging()
@@ -32,6 +33,18 @@ app = FastAPI(
                  "datasets, run the NLP pipeline, and retrieve topics, expectations, blind spots, trends and recommendations."),
     lifespan=lifespan,
 )
-app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:8501", "http://127.0.0.1:8501"],
-                   allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=list(settings.cors_origins), allow_methods=["*"], allow_headers=["*"])
+
+
+@app.middleware("http")
+async def allow_private_network(request, call_next):
+    """A page served from a public origin (e.g. Vercel) calling this backend on localhost triggers Chrome's Private
+    Network Access preflight, which must be answered with this header - but only for origins we explicitly allow."""
+    response = await call_next(request)
+    if (request.method == "OPTIONS" and request.headers.get("access-control-request-private-network") == "true"
+            and request.headers.get("origin", "").rstrip("/") in settings.cors_origins):
+        response.headers["Access-Control-Allow-Private-Network"] = "true"
+    return response
+
+
 app.include_router(router)

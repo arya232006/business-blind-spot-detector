@@ -114,3 +114,14 @@ def test_api_scoring_config_roundtrip(client):
     cfg = client.get("/config/scoring").json()
     assert cfg["w_frequency"] == pytest.approx(0.30)
     assert client.put("/config/scoring", json={**cfg, "w_frequency": -1}).status_code == 422   # validated
+
+
+def test_cors_only_for_explicit_origins_and_private_network_preflight(client):
+    ok = {"Origin": "http://localhost:3000", "Access-Control-Request-Method": "GET", "Access-Control-Request-Private-Network": "true"}
+    r = client.options("/companies", headers=ok)
+    assert r.headers.get("access-control-allow-origin") == "http://localhost:3000"
+    assert r.headers.get("access-control-allow-private-network") == "true"
+    evil = {**ok, "Origin": "https://evil.vercel.app"}
+    r2 = client.options("/companies", headers=evil)
+    assert "access-control-allow-origin" not in r2.headers and "access-control-allow-private-network" not in r2.headers
+    assert client.get("/companies", headers={"Origin": "https://evil.vercel.app"}).headers.get("access-control-allow-origin") is None

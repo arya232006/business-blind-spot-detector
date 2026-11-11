@@ -45,7 +45,7 @@ Terminal-only check (no UI): `python scripts/run_demo.py`
 | NLP / ML | **VADER**, Hugging Face **Transformers** (optional), **Sentence-Transformers (SBERT)**, **BERTopic**, **UMAP**, **HDBSCAN**, Scikit-learn, langdetect |
 | Semantic search | **FAISS** (`IndexFlatIP`, exact cosine search over SBERT vectors; automatic NumPy fallback) |
 | Backend | **FastAPI**, Pydantic v2, SQLAlchemy 2 |
-| Frontend | **Streamlit**, **Plotly** |
+| Frontend | **Next.js 16** (React, TypeScript, Tailwind, Recharts) in `web/` — and the original **Streamlit** + **Plotly** dashboard in `frontend/` |
 | Database | **PostgreSQL** (Docker / production) or **SQLite** (default, zero setup) |
 | Extraction | Requests, BeautifulSoup4, lxml |
 | Optional LLM | Gemini REST API (wording polish only; analytics never depend on it) |
@@ -127,6 +127,15 @@ uvicorn backend.main:app --reload --port 8000
 BLINDSPOT_MODE=api BLINDSPOT_API_URL=http://localhost:8000 streamlit run frontend/app.py
 ```
 `make api`, `make ui`, `make test`, `make demo` are provided as shortcuts.
+
+### Next.js frontend (`web/`)
+A full second frontend with the same 8 pages, built for hosting on Vercel. It calls the FastAPI backend from the browser:
+
+```bash
+uvicorn backend.main:app --port 8000      # backend
+cd web && npm install && npm run dev       # http://localhost:3000
+```
+See [`web/README.md`](web/README.md) for Vercel deployment and the important caveats about pointing a hosted frontend at a backend on your own machine. CORS is an explicit allow-list (`CORS_ORIGINS`) because the API has no authentication.
 
 ## 7. Using the sample data
 
@@ -251,7 +260,8 @@ The dashboard runs in `api` mode against the backend; PostgreSQL data, the Huggi
 ## 15. Project structure
 
 ```
-frontend/   app.py (navigation) · views/ (8 dashboard pages) · components/ (state, filters, charts, style) · client.py
+web/        Next.js dashboard (app/ pages, components/, lib/)
+frontend/   Streamlit dashboard: app.py (navigation) · views/ (8 dashboard pages) · components/ (state, filters, charts, style) · client.py
 backend/    main.py · api/routes.py · schemas/ · services/ (pipeline, analysis jobs, persistence, datasets, companies)
 ml/         ingestion · preprocessing · sentiment · topic_modeling · expectation_detection · company_analysis
             gap_analysis · scoring · trend_detection · recommendations   (+ embeddings.py, text_utils.py)
