@@ -1,0 +1,59 @@
+# PostgreSQL + FastAPI backend + Streamlit dashboard.   docker compose up --build
+# Dashboard: http://localhost:8501   API docs: http://localhost:8000/docs
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-blindspot}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-blindspot}
+      POSTGRES_DB: ${POSTGRES_DB:-blindspot}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-blindspot} -d ${POSTGRES_DB:-blindspot}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: .
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000
+    environment: &app-env
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-blindspot}:${POSTGRES_PASSWORD:-blindspot}@db:5432/${POSTGRES_DB:-blindspot}
+      EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-sbert}
+      USE_BERTOPIC: ${USE_BERTOPIC:-true}
+      USE_TRANSFORMER_SENTIMENT: ${USE_TRANSFORMER_SENTIMENT:-false}
+      LLM_PROVIDER: ${LLM_PROVIDER:-none}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      LOG_DIR: /app/logs
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - hf_cache:/app/.cache/huggingface
+      - logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  frontend:
+    build: .
+    command: streamlit run frontend/app.py --server.address 0.0.0.0 --server.port 8501
+    environment:
+      <<: *app-env
+      BLINDSPOT_MODE: api
+      BLINDSPOT_API_URL: http://backend:8000
+    ports:
+      - "8501:8501"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  hf_cache:
+  logs:

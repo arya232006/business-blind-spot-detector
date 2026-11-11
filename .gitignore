@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/blindspot.db
+logs/
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.DS_Store
+.cache/

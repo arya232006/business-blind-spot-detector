@@ -1,0 +1,137 @@
+text,source,date,category,customer_id,rating,is_synthetic,data_origin,generator_label
+My refund request was closed automatically without being resolved. Had to start over.,Reddit r/novacart_users,2026-08-05 16:15,customer_feedback,CUST-0006,,True,synthetic_demo,refunds
+Bank offer discount did not apply at checkout even though the banner said it would.,App Store review,2026-08-06 17:34,customer_feedback,CUST-0189,,True,synthetic_demo,pricing
+The support chatbot does not understand simple questions like 'where is my refund'.,Twitter/X post,2026-08-07 10:04,customer_feedback,CUST-0143,,True,synthetic_demo,support
+Disappointed with how slow NovaCart is at refunding. Other shops do it in a day.,Reddit r/novacart_users,2026-08-08 15:32,customer_feedback,CUST-0118,,True,synthetic_demo,refunds
+The app keeps crashing when I open my cart. Very frustrating.,Reddit r/novacart_users,2026-08-08 17:39,customer_feedback,CUST-0162,,True,synthetic_demo,app_perf
+Second delayed order in a month. The delivery promise on the website is not true.,Trustpilot review,2026-08-12 11:27,customer_feedback,CUST-0003,,True,synthetic_demo,delivery
+"The 'up to 70% off' banner is misleading, most items are 10 to 15 percent off.",Reddit r/novacart_users,2026-08-12 14:17,customer_feedback,CUST-0186,,True,synthetic_demo,pricing
+"Exchange request got cancelled automatically, had to place a new order at a higher price.",Twitter/X post,2026-08-15 17:00,customer_feedback,CUST-0214,,True,synthetic_demo,returns
+Images take forever to load on mobile data.,Play Store review,2026-08-15 17:05,customer_feedback,CUST-0171,,True,synthetic_demo,app_perf
+"Received the wrong item, ordered a blue jacket and got a grey one.",Email feedback,2026-08-17 08:15,customer_feedback,CUST-0173,,True,synthetic_demo,quality
+App performance dropped after the last update. Checkout screen hangs.,Twitter/X post,2026-08-18 20:42,customer_feedback,CUST-0165,,True,synthetic_demo,app_perf
+"Latest update fixed the crashes. App is much faster now, thank you.",Reddit r/novacart_users,2026-08-18 23:30,customer_feedback,CUST-0169,,True,synthetic_demo,app_perf
+Support ticket closed as 'resolved' when my problem was not resolved at all.,Trustpilot review,2026-08-21 09:54,customer_feedback,CUST-0138,,True,synthetic_demo,support
+Package marked delivered but I never received it. Support has not helped.,Email feedback,2026-08-22 20:53,customer_feedback,CUST-0149,,True,synthetic_demo,delivery
+The shoes are comfortable and the material feels premium. Very happy.,Reddit r/novacart_users,2026-08-23 23:29,customer_feedback,CUST-0178,,True,synthetic_demo,quality
+"App is really slow on my phone, pages take ages to load.",Twitter/X post,2026-08-24 16:32,customer_feedback,CUST-0163,,True,synthetic_demo,app_perf
+The automated chatbot never solves anything. I just want to speak to a real person.,Email feedback,2026-08-25 15:42,customer_feedback,CUST-0126,,True,synthetic_demo,support
+The app crashes every time I try to apply a coupon code.,Reddit r/novacart_users,2026-08-25 16:25,customer_feedback,CUST-0166,,True,synthetic_demo,app_perf
+Filters are limited. Add a filter for brand and customer rating please.,Play Store review,2026-08-26 13:29,customer_feedback,CUST-0200,,True,synthetic_demo,ux
+Search is laggy and freezes after typing a few letters.,Twitter/X post,2026-08-26 19:44,customer_feedback,CUST-0164,,True,synthetic_demo,app_perf
+Can you add live order tracking on a map? Right now it is just text updates.,App Store review,2026-08-27 07:24,customer_feedback,CUST-0195,,True,synthetic_demo,ux
+Price is fine. I just wish delivery and support were as good as the discounts.,App Store review,2026-08-29 11:45,customer_feedback,CUST-0188,,True,synthetic_demo,pricing
+"Easy to browse and order, however the chatbot cannot connect me to a real person.",App Store review,2026-08-29 20:31,customer_feedback,CUST-0225,,True,synthetic_demo,support
+Refund timeline is not clear anywhere on the site. Every agent gives a different answer.,Trustpilot review,2026-09-03 12:16,customer_feedback,CUST-0121,,True,synthetic_demo,refunds
+Item arrived with a cracked screen protector and scratches.,Support survey,2026-09-03 14:09,customer_feedback,CUST-0176,,True,synthetic_demo,quality
+Love the clean layout. The product pages are clear and readable.,Twitter/X post,2026-09-03 15:48,customer_feedback,CUST-0201,,True,synthetic_demo,ux
+Decent discounts but I care more about getting my orders on time.,Twitter/X post,2026-09-04 09:08,customer_feedback,CUST-0187,,True,synthetic_demo,pricing
+The return window is too short. Seven days is not enough for gifts.,Support survey,2026-09-04 14:06,customer_feedback,CUST-0211,,True,synthetic_demo,returns
+Battery drain from this app is crazy. It runs hot when browsing.,Reddit r/novacart_users,2026-09-04 17:29,customer_feedback,CUST-0168,,True,synthetic_demo,app_perf
+Prices are lower than other apps and the coupons actually work.,Trustpilot review,2026-09-06 21:39,customer_feedback,CUST-0181,,True,synthetic_demo,pricing
+"App is smooth and easy to use, but refunds take far too long.",Reddit r/novacart_users,2026-09-08 14:47,customer_feedback,CUST-0113,,True,synthetic_demo,refunds
+Waited 40 minutes in live chat and got disconnected. Terrible customer service.,Reddit r/novacart_users,2026-09-08 15:29,customer_feedback,CUST-0131,,True,synthetic_demo,support
+Agent was helpful and solved my issue in ten minutes. Good experience for once.,Email feedback,2026-09-09 09:56,customer_feedback,CUST-0144,,True,synthetic_demo,support
+I escalated my complaint and got an automated 'we value your feedback' email. That is all.,Reddit r/novacart_users,2026-09-09 13:03,customer_feedback,CUST-0136,,True,synthetic_demo,support
+"Pages load slowly during evenings, sometimes I get a blank screen.",Trustpilot review,2026-09-09 16:13,customer_feedback,CUST-0167,,True,synthetic_demo,app_perf
+"Refund status in the app just says 'pending' for 9 days. No updates, no timeline.",Trustpilot review,2026-09-10 15:59,customer_feedback,CUST-0109,,True,synthetic_demo,refunds
+The rewards programme is okay. Would like more ways to earn points.,App Store review,2026-09-12 23:41,customer_feedback,CUST-0217,,True,synthetic_demo,loyalty
+Please let us edit an order before it ships. Right now we have to cancel and reorder.,Email feedback,2026-09-13 09:30,customer_feedback,CUST-0202,,True,synthetic_demo,ux
+Courier left my parcel outside in the rain and the box was soaked.,Email feedback,2026-09-13 12:56,customer_feedback,CUST-0154,,True,synthetic_demo,delivery
+Support is slow but at least this agent was friendly and apologised.,Email feedback,2026-09-13 16:39,customer_feedback,CUST-0145,,True,synthetic_demo,support
+Why does a refund take 10 working days when the payment took 2 seconds?,Play Store review,2026-09-13 17:06,customer_feedback,CUST-0105,,True,synthetic_demo,refunds
+I wish the app allowed saving multiple delivery addresses with labels.,Support survey,2026-09-13 21:11,customer_feedback,CUST-0199,,True,synthetic_demo,ux
+My order was supposed to arrive in 2 days and it took 9. So much for fast delivery.,App Store review,2026-09-14 11:17,customer_feedback,CUST-0147,,True,synthetic_demo,delivery
+Fast delivery? Mine took 11 days and there was no update from the company.,Support survey,2026-09-14 18:49,customer_feedback,CUST-0152,,True,synthetic_demo,delivery
+Customer support took 6 days to reply to a simple question.,Reddit r/novacart_users,2026-09-14 20:22,customer_feedback,CUST-0128,,True,synthetic_demo,support
+"Cheaper than the local shops, saved around 20 dollars.",Reddit r/novacart_users,2026-09-15 20:24,customer_feedback,CUST-0190,,True,synthetic_demo,pricing
+"Loved the flash sale, got a really good deal on kitchen items.",Trustpilot review,2026-09-15 22:28,customer_feedback,CUST-0183,,True,synthetic_demo,pricing
+Chat support is only available during office hours which is useless for people who work.,Reddit r/novacart_users,2026-09-17 08:10,customer_feedback,CUST-0134,,True,synthetic_demo,support
+The product was great but the refund for my second order took forever. Really put me off.,Play Store review,2026-09-17 19:56,customer_feedback,CUST-0112,,True,synthetic_demo,refunds
+Loads quickly and runs smoothly on my old phone. Impressed.,Email feedback,2026-09-20 12:42,customer_feedback,CUST-0170,,True,synthetic_demo,app_perf
+"App is fast and checkout is smooth, but refunds take way too long.",Email feedback,2026-09-21 15:56,customer_feedback,CUST-0220,,True,synthetic_demo,refunds
+Delivery partner never called and the parcel was returned to the warehouse.,Play Store review,2026-09-22 15:10,customer_feedback,CUST-0150,,True,synthetic_demo,delivery
+"Please add a dark mode option, the white screen hurts my eyes at night.",Email feedback,2026-09-24 07:22,customer_feedback,CUST-0192,,True,synthetic_demo,ux
+Return policy is confusing. Different pages say different things.,Email feedback,2026-09-24 10:27,customer_feedback,CUST-0215,,True,synthetic_demo,returns
+"Great prices and lots of discounts, but customer support never replies to my tickets.",Reddit r/novacart_users,2026-09-24 19:21,customer_feedback,CUST-0221,,True,synthetic_demo,support
+"Parcel arrived 8 days late, but at least the product was fine.",Play Store review,2026-09-25 13:16,customer_feedback,CUST-0161,,True,synthetic_demo,delivery
+It would be great to have voice search in the app.,Reddit r/novacart_users,2026-09-26 07:05,customer_feedback,CUST-0198,,True,synthetic_demo,ux
+Payment failed but the money was deducted from my account. Still no reversal.,Support survey,2026-09-26 08:48,customer_feedback,CUST-0204,,True,synthetic_demo,payments
+The headphones stopped working after two weeks. Poor quality.,Reddit r/novacart_users,2026-09-27 09:29,customer_feedback,CUST-0174,,True,synthetic_demo,quality
+My delivery got delayed because of a wrong address that I never entered.,Reddit r/novacart_users,2026-09-27 09:49,customer_feedback,CUST-0004,,True,synthetic_demo,delivery
+Sizes run smaller than the size chart says. Had to return.,Play Store review,2026-09-27 10:29,customer_feedback,CUST-0179,,True,synthetic_demo,quality
+"Items from the same order arrived on different days, two weeks apart.",Reddit r/novacart_users,2026-09-27 14:14,customer_feedback,CUST-0158,,True,synthetic_demo,delivery
+The support team was polite but could not actually fix anything.,Reddit r/novacart_users,2026-09-27 21:18,customer_feedback,CUST-0135,,True,synthetic_demo,support
+"Product quality is good, but the delivery was nearly a week late.",Play Store review,2026-09-30 12:31,customer_feedback,CUST-0222,,True,synthetic_demo,delivery
+Delivery was on time and the packaging was neat. Happy with this order.,Email feedback,2026-10-02 11:59,customer_feedback,CUST-0153,,True,synthetic_demo,delivery
+"Refund arrived quicker than I expected this time, thanks.",Twitter/X post,2026-10-02 14:37,customer_feedback,CUST-0124,,True,synthetic_demo,refunds
+Loyalty points expired without any warning email. Lost 400 points.,Twitter/X post,2026-10-02 22:29,customer_feedback,CUST-0218,,True,synthetic_demo,loyalty
+Good prices overall. Nothing special but I keep coming back for the offers.,Email feedback,2026-10-03 14:17,customer_feedback,CUST-0185,,True,synthetic_demo,pricing
+"Excellent quality for the price, exactly as described.",Support survey,2026-10-04 10:49,customer_feedback,CUST-0177,,True,synthetic_demo,quality
+Please add a way to compare two products side by side.,Twitter/X post,2026-10-04 19:46,customer_feedback,CUST-0196,,True,synthetic_demo,ux
+"NovaCart Plus points are nice, redeemed them for a decent discount.",Twitter/X post,2026-10-04 21:45,customer_feedback,CUST-0216,,True,synthetic_demo,loyalty
+Refund went to store credit even though I asked for the original payment method. Not what I agreed to.,Play Store review,2026-10-05 13:58,customer_feedback,CUST-0111,,True,synthetic_demo,refunds
+App design looks good but the notifications are too frequent and spammy.,Play Store review,2026-10-05 18:14,customer_feedback,CUST-0203,,True,synthetic_demo,ux
+Free delivery sounds great but it takes ages. I would rather pay for quicker shipping.,App Store review,2026-10-07 08:06,customer_feedback,CUST-0005,,True,synthetic_demo,delivery
+Checkout payment timed out twice and I was billed both times.,Email feedback,2026-10-07 10:37,customer_feedback,CUST-0209,,True,synthetic_demo,payments
+"UPI payments keep failing at checkout, card works only after three tries.",App Store review,2026-10-08 10:36,customer_feedback,CUST-0206,,True,synthetic_demo,payments
+"Cancelled order, refund credited fine within two days. Happy with that one.",Play Store review,2026-10-09 21:07,customer_feedback,CUST-0123,,True,synthetic_demo,refunds
+Reasonable pricing and a good range of products.,Email feedback,2026-10-10 07:54,customer_feedback,CUST-0191,,True,synthetic_demo,pricing
+Delivery experience is getting worse every month. Used to arrive in two days.,Support survey,2026-10-10 17:01,customer_feedback,CUST-0159,,True,synthetic_demo,delivery
+Support promised a callback and never called. Typical.,Twitter/X post,2026-10-11 10:03,customer_feedback,CUST-0132,,True,synthetic_demo,support
+"Delivery was quick this time, arrived the next day. Nice.",Play Store review,2026-10-11 13:23,customer_feedback,CUST-0007,,True,synthetic_demo,delivery
+The app is easy to use and the checkout is simple. Nicely designed.,Support survey,2026-10-11 14:31,customer_feedback,CUST-0194,,True,synthetic_demo,ux
+Would love a wishlist that notifies me when prices drop.,Twitter/X post,2026-10-11 20:34,customer_feedback,CUST-0193,,True,synthetic_demo,ux
+Refund still not credited after 12 days. Support keeps saying it is 'being processed'.,Twitter/X post,2026-10-12 07:05,customer_feedback,CUST-0102,,True,synthetic_demo,refunds
+"Still waiting on my refund. Opened a ticket last week, nothing.",Trustpilot review,2026-10-12 08:55,customer_feedback,CUST-0115,,True,synthetic_demo,refunds
+Customer service has gotten much worse recently. Used to get answers within a day.,Trustpilot review,2026-10-12 09:26,customer_feedback,CUST-0140,,True,synthetic_demo,support
+"Nobody responds when I raise a support ticket. Three tickets, zero replies.",Twitter/X post,2026-10-12 14:04,customer_feedback,CUST-0125,,True,synthetic_demo,support
+Navigation is clean and I can find things quickly. Good job.,App Store review,2026-10-13 07:58,customer_feedback,CUST-0197,,True,synthetic_demo,ux
+Delivery delayed again. Tracking has shown 'out for delivery' for three days.,App Store review,2026-10-13 15:32,customer_feedback,CUST-0148,,True,synthetic_demo,delivery
+"Great product, awful customer care. Replies take days and nobody owns the problem.",Twitter/X post,2026-10-13 19:07,customer_feedback,CUST-0139,,True,synthetic_demo,support
+"The discounts are great, but getting a refund is painful and slow.",Trustpilot review,2026-10-14 07:33,customer_feedback,CUST-0224,,True,synthetic_demo,refunds
+Partial refund only. Nobody explains why they kept part of my money.,Reddit r/novacart_users,2026-10-14 12:23,customer_feedback,CUST-0005,,True,synthetic_demo,refunds
+I love the design of the app but my payment failed and I was charged anyway.,App Store review,2026-10-14 17:17,customer_feedback,CUST-0223,,True,synthetic_demo,payments
+My card got declined on NovaCart but works everywhere else. Payment page is unreliable.,App Store review,2026-10-14 18:10,customer_feedback,CUST-0207,,True,synthetic_demo,payments
+Tracking shows no movement for 5 days. When will my order actually move?,Twitter/X post,2026-10-14 20:38,customer_feedback,CUST-0160,,True,synthetic_demo,delivery
+Order stuck at the sorting centre for 6 days with no explanation.,App Store review,2026-10-14 20:51,customer_feedback,CUST-0155,,True,synthetic_demo,delivery
+I need faster support when an order goes wrong. Waiting days is not acceptable.,Trustpilot review,2026-10-14 21:20,customer_feedback,CUST-0142,,True,synthetic_demo,support
+No way to track my refund anywhere. I have to guess when it will arrive.,Reddit r/novacart_users,2026-10-15 19:38,customer_feedback,CUST-0003,,True,synthetic_demo,refunds
+Ordered before a deadline and it arrived a week late. Completely useless to me now.,Trustpilot review,2026-10-16 07:07,customer_feedback,CUST-0151,,True,synthetic_demo,delivery
+Using Plus membership for early access to sales. Worth it so far.,Reddit r/novacart_users,2026-10-16 15:20,customer_feedback,CUST-0219,,True,synthetic_demo,loyalty
+Why is it so hard to contact NovaCart? I have been looking for a support number for an hour.,Twitter/X post,2026-10-16 16:59,customer_feedback,CUST-0146,,True,synthetic_demo,support
+The sale prices are good but some of the discounts seem inflated.,Email feedback,2026-10-16 20:53,customer_feedback,CUST-0182,,True,synthetic_demo,pricing
+I was promised my refund in 5 days. It's been 15. Still nothing.,Play Store review,2026-10-17 09:02,customer_feedback,CUST-0106,,True,synthetic_demo,refunds
+"Requested a refund for a damaged item, they asked for photos three separate times and still no money back.",Play Store review,2026-10-17 09:38,customer_feedback,CUST-0108,,True,synthetic_demo,refunds
+"Returned the item two weeks ago, still no refund. This is unacceptable.",Twitter/X post,2026-10-17 20:14,customer_feedback,CUST-0103,,True,synthetic_demo,refunds
+"Great discounts this festive season, saved a lot on my electronics order.",App Store review,2026-10-17 23:35,customer_feedback,CUST-0180,,True,synthetic_demo,pricing
+I only wanted my money back and it has turned into a month long ordeal.,Trustpilot review,2026-10-18 08:14,customer_feedback,CUST-0110,,True,synthetic_demo,refunds
+Coupon codes are easy to apply and the savings are real.,Twitter/X post,2026-10-18 15:49,customer_feedback,CUST-0184,,True,synthetic_demo,pricing
+Please give us a way to reach a human agent without going through five bot menus.,Twitter/X post,2026-10-19 08:37,customer_feedback,CUST-0137,,True,synthetic_demo,support
+There is no phone number anywhere. How do I reach someone when the app does not help?,Reddit r/novacart_users,2026-10-19 10:03,customer_feedback,CUST-0129,,True,synthetic_demo,support
+The refund process is a nightmare. Every step needs another form and another wait.,Play Store review,2026-10-19 12:44,customer_feedback,CUST-0104,,True,synthetic_demo,refunds
+Support agents copy paste the same answer and close the ticket without reading it.,Email feedback,2026-10-19 14:12,customer_feedback,CUST-0130,,True,synthetic_demo,support
+I've been waiting three days for a refund and nobody can tell me where my money is.,Twitter/X post,2026-10-20 14:08,customer_feedback,CUST-0101,,True,synthetic_demo,refunds
+Money deducted for a cancelled order and not returned. Third time this has happened.,Play Store review,2026-10-21 10:18,customer_feedback,CUST-0117,,True,synthetic_demo,refunds
+Delivery slots are never respected. I stayed home all day and nobody came.,Support survey,2026-10-21 12:50,customer_feedback,CUST-0156,,True,synthetic_demo,delivery
+I had to ship the return myself and pay for it even though the item was faulty.,Trustpilot review,2026-10-21 20:42,customer_feedback,CUST-0213,,True,synthetic_demo,returns
+"Love the prices, hate the refund experience. Two weeks and counting.",Play Store review,2026-10-22 19:23,customer_feedback,CUST-0114,,True,synthetic_demo,refunds
+Stitching on the bag came apart on the first use. Cheap material.,Reddit r/novacart_users,2026-10-23 13:45,customer_feedback,CUST-0175,,True,synthetic_demo,quality
+Got the refund email but the money never reached my account. Been over a week now.,Play Store review,2026-10-23 15:51,customer_feedback,CUST-0002,,True,synthetic_demo,refunds
+It takes forever to speak to an actual human. The bot sends you in circles.,Trustpilot review,2026-10-23 22:15,customer_feedback,CUST-0127,,True,synthetic_demo,support
+They refunded the item but not the delivery fee that I paid for a failed delivery.,Play Store review,2026-10-23 23:58,customer_feedback,CUST-0120,,True,synthetic_demo,refunds
+Payment went through but the order shows as failed. Money gone and no order.,Trustpilot review,2026-10-24 10:49,customer_feedback,CUST-0208,,True,synthetic_demo,payments
+It takes forever to get your money back here. Think twice before ordering.,Twitter/X post,2026-10-25 09:48,customer_feedback,CUST-0002,,True,synthetic_demo,refunds
+"Returning an item is easy in the app, pickup happened the next day. Smooth.",Support survey,2026-10-25 10:50,customer_feedback,CUST-0212,,True,synthetic_demo,returns
+Express delivery cost extra and arrived no faster than standard shipping.,Reddit r/novacart_users,2026-10-25 22:14,customer_feedback,CUST-0157,,True,synthetic_demo,delivery
+I was charged twice for the same order. Waiting for the duplicate charge to be returned.,Play Store review,2026-10-27 07:39,customer_feedback,CUST-0205,,True,synthetic_demo,payments
+The product quality is much worse than the photos suggested.,Email feedback,2026-10-27 16:14,customer_feedback,CUST-0172,,True,synthetic_demo,quality
+Email support never answered me. Social media DM finally got a reply after a week.,Email feedback,2026-10-27 17:15,customer_feedback,CUST-0141,,True,synthetic_demo,support
+Waited 11 days for a refund of 24 dollars. Ridiculous.,Twitter/X post,2026-10-28 23:38,customer_feedback,CUST-0119,,True,synthetic_demo,refunds
+Refund rejected without any explanation. I returned the product in its original packaging.,Twitter/X post,2026-10-29 09:35,customer_feedback,CUST-0008,,True,synthetic_demo,refunds
+Waiting for a refund for 20 days now. Escalated twice and nothing has changed.,Reddit r/novacart_users,2026-10-30 13:45,customer_feedback,CUST-0122,,True,synthetic_demo,refunds
+Return pickup was scheduled three times and the agent never showed up.,Play Store review,2026-10-30 19:25,customer_feedback,CUST-0210,,True,synthetic_demo,returns
+"Refund promised in 3-5 business days, actual wait was 18 days. Misleading.",Play Store review,2026-11-01 07:43,customer_feedback,CUST-0116,,True,synthetic_demo,refunds
+The estimated delivery date keeps changing every day. Now it says next week.,Twitter/X post,2026-11-01 08:57,customer_feedback,CUST-0005,,True,synthetic_demo,delivery
+Every time I contact support I have to explain my issue from scratch to a new agent.,Twitter/X post,2026-11-01 14:10,customer_feedback,CUST-0133,,True,synthetic_demo,support
+Cancelled my order the same day and the refund still hasn't shown up after a week.,Play Store review,2026-11-01 14:55,customer_feedback,CUST-0107,,True,synthetic_demo,refunds
