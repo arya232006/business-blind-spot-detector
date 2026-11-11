@@ -145,7 +145,7 @@ export function Shell({ children }: { children: ReactNode }) {
         <div className="mx-auto max-w-[1400px] px-5 py-7 lg:px-8">
           {app.apiStatus === "offline" && (
             <ErrorBox>
-              <b>Backend unreachable.</b> {app.apiError} Start it with <code className="rounded bg-red-100 px-1">uvicorn backend.main:app --port 8000</code>, or change the URL under ⚙ Backend settings.
+              <b>Backend unreachable.</b> {app.apiError} If you are the owner, start it with <code className="rounded bg-red-100 px-1">uvicorn backend.main:app --port 8000</code> (or <code className="rounded bg-red-100 px-1">scripts/share.sh</code> to share it publicly). Otherwise the owner&apos;s machine is probably switched off — try again later.
               <div className="mt-2"><Btn onClick={app.recheck}>Retry connection</Btn></div>
             </ErrorBox>
           )}

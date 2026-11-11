@@ -38,6 +38,9 @@ class Settings:
     cors_origins: tuple = field(default_factory=lambda: tuple(
         o.strip().rstrip("/") for o in os.getenv(
             "CORS_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000,http://localhost:8501,http://127.0.0.1:8501").split(",") if o.strip()))
+    # PUBLIC_MODE=true is for sharing the backend through a tunnel: the API has no login, so destructive endpoints
+    # (deleting companies, overwriting the default scoring config) are disabled and CORS may be "*".
+    public_mode: bool = field(default_factory=lambda: _bool("PUBLIC_MODE", False))
     # --- NLP models -----------------------------------------------------
     # "sbert" = SentenceTransformer (needs a one-time model download), "tfidf" = offline lightweight fallback.
     embedding_backend: str = field(default_factory=lambda: os.getenv("EMBEDDING_BACKEND", "sbert").lower())

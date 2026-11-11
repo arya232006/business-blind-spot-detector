@@ -1,27 +1,47 @@
 import type { Bundle, Company, Dataset, PreviewResult, RescoreResult, ScoringConfig, SessionStatus, SessionSummary, TopicConversation } from "./types";
 
 export const DEFAULT_API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+/** Optional public JSON file `{"url": "https://..."}` that always holds the CURRENT backend URL. It lets a hosted frontend find a
+ *  backend that sits behind a tunnel whose address changes on every restart (see scripts/share.sh). */
+export const REGISTRY_URL = process.env.NEXT_PUBLIC_REGISTRY_URL || "";
 const STORAGE_KEY = "bbsd.apiUrl";
 
-/** The backend URL can be changed at runtime (Settings) so a deployed frontend can point at any backend. */
-export function getApiUrl(): string {
-  if (typeof window === "undefined") return DEFAULT_API_URL;
-  try {
-    return (localStorage.getItem(STORAGE_KEY) || DEFAULT_API_URL).replace(/\/+$/, "");
-  } catch {
-    return DEFAULT_API_URL;
-  }
-}
 const listeners = new Set<() => void>();
-export function subscribeApiUrl(cb: () => void) {
+let registryUrl: string | null = null;
+export const subscribeApiUrl = (cb: () => void) => {
   listeners.add(cb);
   return () => { listeners.delete(cb); };
+};
+const notify = () => listeners.forEach((l) => l());
+const isLocalHost = () => typeof window !== "undefined" && ["localhost", "127.0.0.1", "[::1]"].includes(window.location.hostname);
+
+function override(): string | null {
+  try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }
 }
+
+/** Precedence: URL typed in Backend settings > URL from the registry (hosted sites only) > NEXT_PUBLIC_API_URL > localhost. */
+export function getApiUrl(): string {
+  if (typeof window === "undefined") return DEFAULT_API_URL;
+  return (override() || registryUrl || DEFAULT_API_URL).replace(/\/+$/, "");
+}
+
 export function setApiUrl(url: string) {
   try {
-    localStorage.setItem(STORAGE_KEY, url.trim().replace(/\/+$/, ""));
+    if (url.trim()) localStorage.setItem(STORAGE_KEY, url.trim().replace(/\/+$/, ""));
+    else localStorage.removeItem(STORAGE_KEY);
   } catch { /* storage unavailable */ }
-  listeners.forEach((l) => l());
+  notify();
+}
+
+/** Fetch the current backend URL from the registry. Never throws; leaves the default in place on failure. */
+export async function resolveRegistry(): Promise<void> {
+  if (!REGISTRY_URL || typeof window === "undefined" || isLocalHost() || override()) return;
+  try {
+    const res = await fetch(`${REGISTRY_URL}${REGISTRY_URL.includes("?") ? "&" : "?"}t=${Date.now()}`, { cache: "no-store" });
+    const body = (await res.json()) as { url?: string };
+    const next = body.url ? body.url.replace(/\/+$/, "") : null;
+    if (next !== registryUrl) { registryUrl = next; notify(); }
+  } catch { /* registry unreachable: keep whatever we have */ }
 }
 
 export class ApiError extends Error {
@@ -52,7 +72,7 @@ async function request<T>(method: string, path: string, opts: { json?: unknown; 
   } catch (e) {
     if (e instanceof ApiError) throw e;
     if (e instanceof DOMException && e.name === "AbortError") throw new ApiError("The backend took too long to respond.");
-    throw new ApiError(`Cannot reach the backend at ${base}. Is it running (uvicorn backend.main:app --port 8000)?`);
+    throw new ApiError(`Cannot reach the backend at ${base}. It may be switched off (the owner's machine must be running it).`);
   } finally {
     clearTimeout(timer);
   }

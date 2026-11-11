@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
-import { api, ApiError, DEFAULT_API_URL, getApiUrl, setApiUrl as persistApiUrl, subscribeApiUrl } from "./api";
+import { api, ApiError, DEFAULT_API_URL, getApiUrl, resolveRegistry, setApiUrl as persistApiUrl, subscribeApiUrl } from "./api";
 import { applyFilters, EMPTY_FILTERS, type Filters, type View } from "./derive";
 import type { Bundle, Company, SessionSummary } from "./types";
 
@@ -61,10 +61,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
     } else { setApiStatus("offline"); setApiError(r.error); setCompanies([]); }
     setReady(true);
   }, []);
-  const refreshCompanies = useCallback(async () => applyCompanies(await attempt(api.listCompanies)), [applyCompanies]);
+  const refreshCompanies = useCallback(async () => { await resolveRegistry(); applyCompanies(await attempt(api.listCompanies)); }, [applyCompanies]);
   useEffect(() => {
     let live = true;
-    void attempt(api.listCompanies).then((r) => { if (live) applyCompanies(r); });
+    // on a hosted site, first ask the registry where the backend currently is, then connect
+    void resolveRegistry().then(() => attempt(api.listCompanies)).then((r) => { if (live) applyCompanies(r); });
     return () => { live = false; };
   }, [apiUrl, applyCompanies]);
   const recheck = useCallback(() => { setApiStatus("checking"); void refreshCompanies(); }, [refreshCompanies]);

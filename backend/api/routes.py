@@ -35,6 +35,11 @@ def _guard(fn, *args, **kwargs):
         raise HTTPException(500, f"Internal error: {type(exc).__name__}: {exc}") from exc
 
 
+def _not_in_public_mode():
+    if settings.public_mode:
+        raise HTTPException(403, "This action is disabled because the backend is running in PUBLIC_MODE.")
+
+
 def _mapping(raw: str | None) -> dict | None:
     if not raw:
         return None
@@ -55,7 +60,7 @@ async def _read_upload(file: UploadFile) -> bytes:
 # ------------------------------------------------------------------ system
 @router.get("/health", tags=["system"])
 def health():
-    return {"status": "ok", "embedding_backend": settings.embedding_backend, "database": settings.database_url.split("://")[0]}
+    return {"status": "ok", "embedding_backend": settings.embedding_backend, "database": settings.database_url.split("://")[0], "public_mode": settings.public_mode}
 
 
 @router.get("/config/scoring", response_model=ScoringConfigModel, tags=["system"])
@@ -65,6 +70,7 @@ def get_scoring_config():
 
 @router.put("/config/scoring", response_model=ScoringConfigModel, tags=["system"])
 def put_scoring_config(cfg: ScoringConfigModel):
+    _not_in_public_mode()
     new = ScoringConfig.from_dict(cfg.model_dump())
     save_scoring_config(new)
     return new.to_dict()
@@ -88,6 +94,7 @@ def get_company(company_id: int):
 
 @router.delete("/companies/{company_id}", status_code=204, tags=["companies"])
 def delete_company(company_id: int):
+    _not_in_public_mode()
     _guard(companies.delete_company, company_id)
 
 

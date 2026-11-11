@@ -33,6 +33,7 @@ app = FastAPI(
                  "datasets, run the NLP pipeline, and retrieve topics, expectations, blind spots, trends and recommendations."),
     lifespan=lifespan,
 )
+_ALLOW_ALL = "*" in settings.cors_origins   # only intended together with PUBLIC_MODE (no cookies/credentials are used)
 app.add_middleware(CORSMiddleware, allow_origins=list(settings.cors_origins), allow_methods=["*"], allow_headers=["*"])
 
 
@@ -42,7 +43,7 @@ async def allow_private_network(request, call_next):
     Network Access preflight, which must be answered with this header - but only for origins we explicitly allow."""
     response = await call_next(request)
     if (request.method == "OPTIONS" and request.headers.get("access-control-request-private-network") == "true"
-            and request.headers.get("origin", "").rstrip("/") in settings.cors_origins):
+            and (_ALLOW_ALL or request.headers.get("origin", "").rstrip("/") in settings.cors_origins)):
         response.headers["Access-Control-Allow-Private-Network"] = "true"
     return response
 

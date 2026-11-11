@@ -135,7 +135,7 @@ A full second frontend with the same 8 pages, built for hosting on Vercel. It ca
 uvicorn backend.main:app --port 8000      # backend
 cd web && npm install && npm run dev       # http://localhost:3000
 ```
-See [`web/README.md`](web/README.md) for Vercel deployment and the important caveats about pointing a hosted frontend at a backend on your own machine. CORS is an explicit allow-list (`CORS_ORIGINS`) because the API has no authentication.
+See [`web/README.md`](web/README.md) for Vercel deployment and for **`scripts/share.sh`**, which exposes the backend on your machine through a free tunnel so anyone can use the hosted site while your machine is running. CORS is an explicit allow-list (`CORS_ORIGINS`) by default because the API has no authentication; `PUBLIC_MODE=true` (set by `share.sh`) disables destructive endpoints and permits `CORS_ORIGINS=*`.
 
 ## 7. Using the sample data
 

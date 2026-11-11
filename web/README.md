@@ -26,13 +26,31 @@ sidebar under **⚙ Backend settings** (stored in the browser), so a deployed fr
    CORS_ORIGINS="http://localhost:3000,https://YOUR-APP.vercel.app" uvicorn backend.main:app --port 8000
    ```
 
-### Important: what "backend on my machine" means for a hosted site
-A page hosted on Vercel calls the backend **from the visitor's browser**. So `http://localhost:8000` works only for the person
-whose machine runs the backend (you, in your own browser). Other visitors would hit *their own* localhost and see "Backend unreachable".
-To let others use it, host the backend publicly (Render, Railway, Fly.io, a VPS, or a Cloudflare/ngrok tunnel), add HTTPS, put
-authentication in front of it, and set the URL in **Backend settings**. Browsers also restrict `https` pages calling `http://localhost`
-(Chrome allows it with the Private Network Access preflight the backend already answers; Safari may block it — use Chrome/Edge/Firefox
-or an https tunnel).
+### Sharing your machine's backend with everyone (the intended setup)
+A page hosted on Vercel calls the backend **from each visitor's browser**, so `http://localhost:8000` only works for you. To let
+anyone use the site while your machine is on, give the backend a public URL with a tunnel:
+
+```bash
+brew install cloudflared            # once (free, no account)
+scripts/share.sh                    # starts the backend + a public https://<random>.trycloudflare.com tunnel
+```
+
+The tunnel address changes every time you restart it, so the hosted site finds it through a tiny public **registry** file
+(`{"url": "https://…"}`) that `share.sh` rewrites on every start (and blanks on Ctrl+C, so visitors see "backend offline"):
+
+1. Create the registry once (a public GitHub Gist with a file named `backend.json`):
+   `echo '{"url": ""}' > backend.json && gh gist create backend.json --public`
+2. Set `NEXT_PUBLIC_REGISTRY_URL` on Vercel to the gist's **raw** URL: `https://gist.githubusercontent.com/<user>/<gist-id>/raw/backend.json`
+3. Run the share script with the gist id: `BBSD_GIST_ID=<gist-id> scripts/share.sh`
+
+(Alternative without a registry: a stable tunnel hostname — ngrok free static domain or a Cloudflare named tunnel on your own domain —
+then just set `NEXT_PUBLIC_API_URL` on Vercel.)
+
+**Security:** the API has no login. While shared, anyone with the URL can upload and analyse data and read what is stored in the local
+database, and can use CPU on your machine. `share.sh` therefore starts the backend with `PUBLIC_MODE=true` (deleting companies and
+changing the default scoring config are disabled) — but share only demo data, or point `DATABASE_URL` at a throw-away database.
+Backend lookups order on a hosted site: URL typed in *Backend settings* → registry → `NEXT_PUBLIC_API_URL` → `http://localhost:8000`.
+On `localhost` the registry is ignored, so local development always talks to your local backend.
 
 ## Structure
 

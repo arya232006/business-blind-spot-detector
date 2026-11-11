@@ -125,3 +125,16 @@ def test_cors_only_for_explicit_origins_and_private_network_preflight(client):
     r2 = client.options("/companies", headers=evil)
     assert "access-control-allow-origin" not in r2.headers and "access-control-allow-private-network" not in r2.headers
     assert client.get("/companies", headers={"Origin": "https://evil.vercel.app"}).headers.get("access-control-allow-origin") is None
+
+
+def test_public_mode_blocks_destructive_endpoints(client, monkeypatch):
+    from config.settings import settings
+    import dataclasses
+
+    cid = client.post("/companies", json={"name": "PubCo"}).json()["id"]
+    monkeypatch.setattr("backend.api.routes.settings", dataclasses.replace(settings, public_mode=True))
+    assert client.delete(f"/companies/{cid}").status_code == 403
+    assert client.put("/config/scoring", json=client.get("/config/scoring").json()).status_code == 403
+    assert client.get("/companies").status_code == 200                      # reads and normal workflow stay available
+    monkeypatch.undo()
+    assert client.delete(f"/companies/{cid}").status_code == 204
